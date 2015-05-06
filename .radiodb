@@ -25,12 +25,11 @@ klara	http://mp3.streampower.be/klara-high.mp3
 frclass	http://mp3lg.tdf-cdn.com/francemusique/all/francemusiquehautdebit.mp3
 ancient	http://5.152.208.98:8058/
 192	http://server-14.stream-server.nl:8030/
-10gold	http://82.201.100.23/Radio10Gold
+10gold	http://stream.radio10.nl/radio10aac
 bnr	http://81.173.3.251/
 sky	http://8543.live.streamtheworld.com:80/SKYRADIOAAC_SC
 538	http://82.201.100.23/RADIO538_WEB_AAC
 fresh	http://stream12.freshfmonline.com/
-dB	http://212.61.66.79:8070/
-slam	http://82.201.100.23:80/slamfm
+dB	http://91.221.151.253:80/
+slam	http://vip-icecast.538.lw.triple-it.nl:80/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
-hrr	http://radio.canstream.co.uk:8515/live.mp3
