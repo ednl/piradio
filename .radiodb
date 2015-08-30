@@ -1,4 +1,4 @@
-fip	http://mp3.live.tv-radio.com/fip/all/fiphautdebit.mp3
+fip	http://audio.scdn.arkena.com/11016/fip-midfi128.mp3
 arrow	http://91.221.151.155:80/
 veron	http://8633.live.streamtheworld.com:80/VERONICAAAC_SC
 class	http://8503.live.streamtheworld.com:80/CLASSICFMAAC_SC
@@ -22,7 +22,7 @@ bbcwn	http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
 stubru	http://mp3.streampower.be/stubru-high.mp3
 mnm	http://mp3.streampower.be/mnm-high.mp3
 klara	http://mp3.streampower.be/klara-high.mp3
-frclass	http://mp3lg.tdf-cdn.com/francemusique/all/francemusiquehautdebit.mp3
+frclass	http://audio.scdn.arkena.com/11012/francemusique-midfi128.mp3
 ancient	http://5.152.208.98:8058/
 192	http://server-14.stream-server.nl:8030/
 10gold	http://stream.radio10.nl/radio10aac
