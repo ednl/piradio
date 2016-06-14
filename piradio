@@ -4,27 +4,30 @@
 # Made by    : Ewoud Dronkert
 # Licence    : GNU GPL v3
 # Platform   : Raspberry Pi
-# Requires   : Bash, mpd, mpc
+# Requires   : bash, mpd, mpc, at
 # Location   : /usr/local/bin/
 # Name       : piradio
-# Version    : 1.0.0
-# Date       : 2014-12-02
+# Version    : 1.2.0
+# Date       : 2016-06-14
 # Purpose    : Play radio streams via local mpd audio server
-#              Use station abbreviations from user file .radiodb
+#              Use station abbreviations from user file radio.txt
+#              Shutdown (auto-off) after 3 hours using 'at'
 # Parameters : <none> | <station> | list |
 #              vol [ + | - | min | max | def | 0..100 ] |
 #              on | off | help
 # Exit     0 : success
 #          1 : help displayed
-#          2 : .radiodb local user file not found
+#          2 : radio.txt local user file not found
 #          3 : station abbreviation not recognised
-#          4 : mpc executable not found
+#          4 : mpc or at executables not found
 #######################################################################
 
 # Variables
-PLAYER=/usr/bin/mpc
-DBNAME=.radiodb
-DBFILE=/home/pi/$DBNAME
+PLAYER=$(which mpc)
+ATBIN=$(which at)
+ATCMD="$PLAYER stop"
+PIHOME=$(cat /etc/passwd | grep -e '^pi:' | cut -d':' -f6)
+DBFILE=$PIHOME/radio.txt
 DEFVOL=85
 ADJVOL=5
 
@@ -34,6 +37,7 @@ declare -i ERR_HELP=1
 declare -i ERR_DBNOTFOUND=2
 declare -i ERR_IDNOTFOUND=3
 declare -i ERR_APPNOTFOUND=4
+declare -i ERR_NOSNOOZE=5
 
 # Copy/redirect output to stderr
 function StdErr () {
@@ -47,18 +51,55 @@ if [ ! -x "$PLAYER" ]; then
 	exit $ERR_APPNOTFOUND
 fi
 
+if [ ! -x "$ATBIN" ]; then
+	echo | StdErr
+	echo "   Scheduler for snooze not found: $ATBIN" | StdErr
+	echo | StdErr
+	exit $ERR_APPNOTFOUND
+fi
+
+# "at" with sudo because the script might be called from the web interface
+# as user www-data who is in /etc/at.deny. That then requires using visudo
+# to add /usr/bin/at for user www-data. If only called from command line as
+# user pi, sudo may be removed.
+function SnoozeClear () {
+	for i in $(sudo $ATBIN -l | grep -oP '^\d+' | sort | xargs); do
+		j=$(sudo $ATBIN -c $i | tail -n 1)
+		if [[ "$j" == "$ATCMD" ]]; then
+			sudo $ATBIN -r $i > /dev/null
+		fi
+	done
+}
+
+function SnoozeReset () {
+	SnoozeClear
+	echo -n "$ATCMD" | sudo $ATBIN -M now + 3 hours > /dev/null
+}
+
+function SnoozeFind () {
+	RETVAL=
+	for i in $(sudo $ATBIN -l | grep -oP '^\d+' | sort | xargs); do
+		j=$(sudo $ATBIN -c $i | tail -n 1)
+		if [[ "$j" == "$ATCMD" ]]; then
+			RETVAL=$(sudo $ATBIN -l | grep -P "^$i\t" | cut -d" " -f4 | cut -d":" -f1-2)
+			return $ERR_OK
+		fi
+	done
+	return $ERR_NOSNOOZE
+}
+
 # Help
 if [[ "$1" == "help" || "$1" == "--help" || "$1" == "/help" || \
       "$1" == "-h" || "$1" == "/h" || \
       "$1" == "?" || "$1" == "-?" || "$1" == "/?" ]]; then
 	echo | StdErr
 	echo "   Usage:" | StdErr
-	echo "   - Which station is on?  : radio" | StdErr
-	echo "   - Tune to a station     : radio <station-id>" | StdErr
-	echo "   - List all stations     : radio list" | StdErr
-	echo "   - Show or adjust volume : radio vol [ + | - | min | max | def | 0..100 ]" | StdErr
-	echo "   - Mute or unmute        : radio mute" | StdErr
-	echo "   - Turn radio on or off  : radio on | off" | StdErr
+	echo "   - Which station is on?  : piradio" | StdErr
+	echo "   - Tune to a station     : piradio <station-id>" | StdErr
+	echo "   - List all stations     : piradio list" | StdErr
+	echo "   - Show or adjust volume : piradio vol [ + | - | min | max | def | 0..100 ]" | StdErr
+	echo "   - Mute or unmute        : piradio mute" | StdErr
+	echo "   - Turn radio on or off  : piradio on | off" | StdErr
 	echo | StdErr
 	exit $ERR_HELP
 fi
@@ -79,10 +120,13 @@ if [ -z "$1" ]; then
 			curstation="(station database not found at \"$DBFILE\")"
 		fi
 	fi
+	SnoozeFind
+	snooze=$RETVAL
 	echo
 	[ -z "$curstation" ] || echo "   Station : $curstation"
 	[ -z "$curstream" ]  || echo "   Stream  : $curstream"
 	[ -z "$curvolume" ]  || echo "   Volume  : $curvolume"
+	[ -z "$snooze" ]     || echo "   Snooze  : $snooze"
 	echo
 	exit $ERR_OK
 fi
@@ -107,12 +151,14 @@ fi
 if [[ "$1" == "on" || "$1" == "play" ]]; then
 	# TODO: check if a radio stream is lined up
 	$PLAYER play > /dev/null
+	SnoozeReset
 	exit $ERR_OK
 fi
 
 # Turn radio off
 if [[ "$1" == "off" || "$1" == "stop" ]]; then
 	$PLAYER stop > /dev/null
+	SnoozeClear
 	exit $ERR_OK
 fi
 
@@ -167,15 +213,16 @@ safe=$(echo "$1" | sed -e 's/\s*//g' | sed -e 's/[\[\\^$.*?"-]/\\\0/g')
 if [ -z "$stream" ]; then
 	echo | StdErr
 	echo "   Station \"$1\" not found." | StdErr
-	echo "   List stations : radio list" | StdErr
-	echo "   Usage info    : radio help" | StdErr
+	echo "   List stations : piradio list" | StdErr
+	echo "   Usage info    : piradio help" | StdErr
 	echo | StdErr
 	exit $ERR_IDNOTFOUND
 fi
 
 $PLAYER stop > /dev/null
 $PLAYER clear > /dev/null
-#$PLAYER volume $DEFVOL > /dev/null
 $PLAYER add $stream > /dev/null
 $PLAYER play > /dev/null
+SnoozeReset
+
 exit $ERR_OK
