@@ -66,14 +66,14 @@ function SnoozeClear () {
 	for i in $(sudo $ATBIN -l | grep -oP '^\d+' | sort | xargs); do
 		j=$(sudo $ATBIN -c $i | tail -n 1)
 		if [[ "$j" == "$ATCMD" ]]; then
-			sudo $ATBIN -r $i > /dev/null
+			sudo $ATBIN -r $i &> /dev/null
 		fi
 	done
 }
 
 function SnoozeReset () {
 	SnoozeClear
-	echo -n "$ATCMD" | sudo $ATBIN -M now + 3 hours > /dev/null
+	echo -n "$ATCMD" | sudo $ATBIN -M now + 3 hours &> /dev/null
 }
 
 function SnoozeFind () {
