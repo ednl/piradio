@@ -81,7 +81,7 @@ function SnoozeFind () {
 	for i in $(sudo $ATBIN -l | grep -oP '^\d+' | sort | xargs); do
 		j=$(sudo $ATBIN -c $i | tail -n 1)
 		if [[ "$j" == "$ATCMD" ]]; then
-			RETVAL=$(sudo $ATBIN -l | grep -P "^$i\t" | cut -d" " -f4 | cut -d":" -f1-2)
+			RETVAL=$(sudo $ATBIN -l | grep -P "^$i\t" | cut -d" " -f5 | cut -d":" -f1-2)
 			return $ERR_OK
 		fi
 	done
