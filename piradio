@@ -19,7 +19,7 @@
 #          1 : help displayed
 #          2 : radio.txt local user file not found
 #          3 : station abbreviation not recognised
-#          4 : mpc or at executables not found
+#          4 : mpc, amixer, bc or at executables not found
 #######################################################################
 
 # Variables
@@ -39,7 +39,6 @@ declare -i ERR_HELP=1
 declare -i ERR_DBNOTFOUND=2
 declare -i ERR_IDNOTFOUND=3
 declare -i ERR_APPNOTFOUND=4
-declare -i ERR_NOSNOOZE=5
 
 # Copy/redirect output to stderr
 function StdErr () {
