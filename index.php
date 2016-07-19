@@ -1,6 +1,6 @@
 <?php
 
-$stationfile = '/home/pi/.radiodb';
+$stationfile = '/home/pi/radio.txt';
 $stationtext = file($stationfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $station = array();
@@ -49,10 +49,6 @@ header('Content-Type: text/html; charset=utf-8');
 			}
 			function vol(adj) {
 				ajax("vol.php?adj=" + encodeURIComponent(adj));
-				return false;
-			}
-			function shutdown(arg) {
-				ajax("shutdown.php?arg=" + encodeURIComponent(arg));
 				return false;
 			}
 		</script>
