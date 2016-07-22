@@ -33,6 +33,9 @@ header('Content-Type: text/html; charset=utf-8');
 			div#listall { font: 16px Helvetica; width: 646px; margin-top: 10px; overflow-x: hidden; }
 			div.station { padding: 10px 15px; }
 			div.row1 { background-color: #f0f0f0; }
+			div#reboot, div#poweroff { cursor: pointer; font: 24px Helvetica; color: #fff; width: 616px; margin-top: 10px; padding: 10px 15px; text-align: center; }
+			div#reboot { background-color: #0c0; }
+			div#poweroff { background-color: #f00; }
 		</style>
 		<script type="text/javascript">
 			function ajax(url) {
@@ -49,6 +52,10 @@ header('Content-Type: text/html; charset=utf-8');
 			}
 			function vol(adj) {
 				ajax("vol.php?adj=" + encodeURIComponent(adj));
+				return false;
+			}
+			function shutdown(arg) {
+				ajax("shutdown.php?arg=" + encodeURIComponent(arg));
 				return false;
 			}
 		</script>
@@ -89,5 +96,7 @@ if (count($station)) {
 }
 
 ?>
+		<div id="reboot" onclick="return shutdown('r')">Reboot</div>
+		<div id="poweroff" onclick="return shutdown('h')">Power Off</div>
 	</body>
 </html>
