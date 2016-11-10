@@ -1,4 +1,5 @@
-fip	http://audio.scdn.arkena.com/11016/fip-midfi128.mp3
+fip	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-midfi.mp3
+fip5	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio5.mp3
 arrow	http://91.221.151.155:80/
 10	http://stream.radio10.nl/radio10aac
 class	http://8513.live.streamtheworld.com:443/CLASSICFMAAC_SC
@@ -22,7 +23,7 @@ bbcwn	http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
 stubru	http://mp3.streampower.be/stubru-high.mp3
 mnm	http://mp3.streampower.be/mnm-high.mp3
 klara	http://mp3.streampower.be/klara-high.mp3
-frclass	http://audio.scdn.arkena.com/11012/francemusique-midfi128.mp3
+frclass	http://aifae8Cah8.lb.vip.cdn.dvmr.fr:80/francemusique-midfi.mp3
 ancient	http://5.152.208.98:8058/
 trip	http://ice.somafm.com/thetrip
 ds1	http://ice.somafm.com/deepspaceone
@@ -36,11 +37,10 @@ fresh	http://stream12.freshfmonline.com/
 dB	http://91.221.151.253:80/
 slam	http://vip-icecast.538.lw.triple-it.nl:80/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
-fip1	http://webradiofip1.scdn.arkena.com/webradiofip1.mp3
-fip2	http://webradiofip2.scdn.arkena.com/webradiofip2.mp3
-fip3	http://webradiofip3.scdn.arkena.com/webradiofip3.mp3
-fip4	http://webradiofip4.scdn.arkena.com/webradiofip4.mp3
-fip5	http://webradiofip5.scdn.arkena.com/webradiofip5.mp3
-fip6	http://webradiofip6.scdn.arkena.com/webradiofip6.mp3
+fip1	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio1.mp3
+fip2	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio2.mp3
+fip3	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio3.mp3
+fip4	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio4.mp3
+fip6	http://aifae8cah8.lb.vip.cdn.dvmr.fr/fip-webradio6.mp3
 nprmp3	http://current.stream.publicradio.org/kcmp.mp3
 npraac	http://current.stream.publicradio.org/kcmp.aac
