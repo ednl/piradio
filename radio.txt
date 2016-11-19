@@ -23,7 +23,7 @@ bbcwn	http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-einws
 stubru	http://mp3.streampower.be/stubru-high.mp3
 mnm	http://mp3.streampower.be/mnm-high.mp3
 klara	http://mp3.streampower.be/klara-high.mp3
-frclass	http://aifae8Cah8.lb.vip.cdn.dvmr.fr:80/francemusique-midfi.mp3
+frclass	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/francemusique-midfi.mp3
 ancient	http://5.152.208.98:8058/
 trip	http://ice.somafm.com/thetrip
 ds1	http://ice.somafm.com/deepspaceone
