@@ -1,5 +1,5 @@
-fip	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-midfi.mp3
-fip5	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio5.mp3
+fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
+fip5	http://chai5she.cdn.dvmr.fr/fip-webradio5.mp3
 arrow	http://91.221.151.155:80/
 10	http://stream.radio10.nl/radio10aac
 class	http://19333.live.streamtheworld.com:80/CLASSICFMAAC.aac
@@ -37,10 +37,10 @@ fresh	http://stream12.freshfmonline.com/
 dB	http://91.221.151.253:80/
 slam	http://vip-icecast.538.lw.triple-it.nl:80/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
-fip1	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio1.mp3
-fip2	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio2.mp3
-fip3	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio3.mp3
-fip4	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio4.mp3
-fip6	http://aifae8cah8.lb.vip.cdn.dvmr.fr:80/fip-webradio6.mp3
+fip1	http://chai5she.cdn.dvmr.fr/fip-webradio1.mp3
+fip2	http://chai5she.cdn.dvmr.fr/fip-webradio2.mp3
+fip3	http://chai5she.cdn.dvmr.fr/fip-webradio3.mp3
+fip4	http://chai5she.cdn.dvmr.fr/fip-webradio4.mp3
+fip6	http://chai5she.cdn.dvmr.fr/fip-webradio6.mp3
 nprmp3	http://current.stream.publicradio.org/kcmp.mp3
 npraac	http://current.stream.publicradio.org/kcmp.aac
