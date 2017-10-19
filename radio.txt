@@ -1,7 +1,7 @@
 fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
 fip8	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
 arrow	http://91.221.151.155:80/
-10	http://vip-icecast.538.lw.triple-it.nl/RADIO10_MP3
+10	http://19983.live.streamtheworld.com/RADIO10AAC.aac
 class	http://19333.live.streamtheworld.com:80/CLASSICFMAAC.aac
 1	http://icecast.omroep.nl/radio1-bb-aac
 2	http://icecast.omroep.nl/radio2-bb-aac
@@ -45,3 +45,4 @@ fip5	http://chai5she.cdn.dvmr.fr/fip-webradio5.mp3
 fip6	http://chai5she.cdn.dvmr.fr/fip-webradio6.mp3
 nprmp3	http://current.stream.publicradio.org/kcmp.mp3
 npraac	http://current.stream.publicradio.org/kcmp.aac
+kexp	http://live-aacplus-64.kexp.org/kexp64.aac
