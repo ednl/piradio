@@ -1,6 +1,6 @@
 fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
 fip8	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
-class	http://19093.live.streamtheworld.com/CLASSICFM_SC
+class	http://20133.live.streamtheworld.com:80/CLASSICFM_SC
 10	http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO10AAC.aac
 arrow	http://91.221.151.155/
 1	http://icecast.omroep.nl/radio1-bb-aac
