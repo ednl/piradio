@@ -21,8 +21,9 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-GB">
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Internet Radio</title>
+		<title>Pi Internet Radio</title>
 		<meta name="author" content="Ewoud Dronkert" />
+		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
 			* { border: 0; margin: 0; padding: 0; }
 			body { margin: 10px; background-color: #fff; }
@@ -33,8 +34,9 @@ header('Content-Type: text/html; charset=utf-8');
 			div#listall { font: 16px Helvetica; width: 646px; margin-top: 10px; overflow-x: hidden; }
 			div.station { padding: 10px 15px; }
 			div.row1 { background-color: #f0f0f0; }
-			div#reboot, div#poweroff { cursor: pointer; font: 24px Helvetica; color: #fff; width: 616px; margin-top: 10px; padding: 10px 15px; text-align: center; }
-			div#reboot { background-color: #0c0; }
+			div#stop, div#reboot, div#poweroff { font: 24px Helvetica; color: #fff; width: 616px; margin-top: 10px; padding: 10px 15px; text-align: center; border-radius: 7px; }
+			div#stop { background-color: #0c0; }
+			div#reboot { background-color: #f90; }
 			div#poweroff { background-color: #f00; }
 		</style>
 		<script type="text/javascript">
@@ -48,24 +50,57 @@ header('Content-Type: text/html; charset=utf-8');
 			}
 			function tune(station) {
 				ajax("tune.php?station=" + encodeURIComponent(station));
+				if (station != "off") {
+					var e;
+					if (e = document.getElementById("stop")) {
+						e.style.backgroundColor = "#0c0";
+						e.style.cursor = "pointer";
+						e.addEventListener("click", shutdown);
+					}
+				}
 				return false;
 			}
 			function vol(adj) {
 				ajax("vol.php?adj=" + encodeURIComponent(adj));
 				return false;
 			}
-			function shutdown(arg) {
-				ajax("shutdown.php?arg=" + encodeURIComponent(arg));
+			function shutdown(e) {
+				e.target.removeEventListener("click", shutdown);
+				e.target.style.cursor = "default";
+				var arg = false;
+				if (e.target.id == "stop") {
+					e.target.style.backgroundColor = "#cfc";
+					return tune("off");
+				} else if (e.target.id == "reboot") {
+					e.target.style.backgroundColor = "#fec";
+					arg = "r";
+				} else if (e.target.id == "poweroff") {
+					e.target.style.backgroundColor = "#fcc";
+					arg = "h";
+				}
+				if (arg) {
+					ajax("shutdown.php?arg=" + encodeURIComponent(arg));
+				}
 				return false;
+			}
+			function init() {
+				tune();
+				var id, e;
+				for (id of ["reboot", "poweroff"]) {
+					if (e = document.getElementById(id)) {
+						e.addEventListener("click", shutdown);
+						e.style.cursor = "pointer";
+					}
+				}
 			}
 		</script>
 	</head>
-	<body onload="tune()">
+	<body onload="init()">
 		<div id="favs">
 <?php
 
 reset($station);
-for ($i = 0; $i < 5; ++$i) {
+for ($i = 0; $i < 6; ++$i) {
 	echo "\t\t\t";
 	if ($a = each($station)) {
 		list($id, $url) = $a;
@@ -77,12 +112,15 @@ for ($i = 0; $i < 5; ++$i) {
 }
 
 ?>
-			<a href="#off" onclick="return tune('off')" title="Radio Off"><img src="cmd-off.png" alt="off" /></a>
+			<!-- <a href="#off" onclick="return tune('off')" title="Radio Off"><img src="cmd-off.png" alt="off" /></a> -->
 			<a href="#dec" onclick="return vol('-')" title="Volume Down"><img src="cmd-dec.png" alt="dec" /></a>
 			<a href="#inc" onclick="return vol('+')" title="Volume Up"><img src="cmd-inc.png" alt="inc" /></a>
 			<div id="clr"></div>
 		</div>
+		<div id="stop">Stop</div>
 		<pre id="lcd"></pre>
+		<div id="reboot">Reboot</div>
+		<div id="poweroff">Power Off</div>
 <?php
 
 if (count($station)) {
@@ -96,7 +134,5 @@ if (count($station)) {
 }
 
 ?>
-		<div id="reboot" onclick="return shutdown('r')">Reboot</div>
-		<div id="poweroff" onclick="return shutdown('h')">Power Off</div>
 	</body>
 </html>
