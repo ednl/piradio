@@ -1,4 +1,4 @@
-ip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
+fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
 fip-elec	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
 class	http://19373.live.streamtheworld.com:80/CLASSICFM_SC
 10	http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO10AAC.aac
