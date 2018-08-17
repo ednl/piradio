@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-GB">
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Pi Internet Radio</title>
+		<title>Raspberry Pi Internet Radio</title>
 		<meta name="author" content="Ewoud Dronkert" />
 		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
@@ -30,7 +30,18 @@ header('Content-Type: text/html; charset=utf-8');
 			img { width: 72px; height: 72px; margin-right: 10px; float: left; }
 			a { text-decoration: none; }
 			div#clr { clear: both; }
-			pre { color: #000; background-color: #bdf; width: 616px; margin-top: 10px; padding: 10px 15px; overflow-x: hidden; }
+			pre {
+				background-color: #bdf;
+				width: 616px;
+				margin-top: 10px;
+				padding: 10px 15px;
+			}
+			div#lcd {
+				color: #000;
+				overflow-x: hidden;
+				background-repeat: no-repeat;
+				background-position: top right;
+			}
 			div#listall { font: 16px Helvetica; width: 646px; margin-top: 10px; overflow-x: hidden; }
 			div.station { padding: 10px 15px; }
 			div.row1 { background-color: #f0f0f0; }
@@ -40,11 +51,24 @@ header('Content-Type: text/html; charset=utf-8');
 			div#poweroff { background-color: #f00; }
 		</style>
 		<script type="text/javascript">
+			var re_station = /Station : (.*)/;
 			function ajax(url) {
 				var req = new XMLHttpRequest();
 				req.open("GET", url);
 				req.onload = function() {
-					document.getElementById("lcd").innerHTML = req.responseText;
+					var e;
+					if (e = document.getElementById("lcd")) {
+						e.innerHTML = req.responseText;
+						e.style.backgroundImage = "";
+						var station = req.responseText.match(re_station);
+						if (null !== station) {
+							if (station.length == 2) {
+								if (station[1].length) {
+									e.style.backgroundImage = "url(logo-" + station[1] + ".png)";
+								}
+							}
+						}
+					}
 				}
 				req.send();
 			}
@@ -118,7 +142,7 @@ for ($i = 0; $i < 6; ++$i) {
 			<div id="clr"></div>
 		</div>
 		<div id="stop">Stop</div>
-		<pre id="lcd"></pre>
+		<pre><div id="lcd"></div></pre>
 		<div id="reboot">Reboot</div>
 		<div id="poweroff">Power Off</div>
 <?php
