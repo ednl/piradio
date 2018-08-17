@@ -1,6 +1,6 @@
-fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
-fip8	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
-class	http://20133.live.streamtheworld.com:80/CLASSICFM_SC
+ip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
+fip-elec	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
+class	http://19373.live.streamtheworld.com:80/CLASSICFM_SC
 10	http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO10AAC.aac
 arrow	http://91.221.151.155/
 1	http://icecast.omroep.nl/radio1-bb-aac
@@ -9,6 +9,12 @@ arrow	http://91.221.151.155/
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
 6	http://icecast.omroep.nl/radio6-bb-aac
+fip-rock	http://chai5she.cdn.dvmr.fr/fip-webradio1.mp3
+fip-jazz	http://chai5she.cdn.dvmr.fr/fip-webradio2.mp3
+fip-groove	http://chai5she.cdn.dvmr.fr/fip-webradio3.mp3
+fip-monde	http://chai5she.cdn.dvmr.fr/fip-webradio4.mp3
+fip-nouv	http://chai5she.cdn.dvmr.fr/fip-webradio5.mp3
+fip-reggae	http://chai5she.cdn.dvmr.fr/fip-webradio6.mp3
 bbc1	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
 bbc1x	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1xtra_mf_p
 bbc2	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
@@ -36,12 +42,3 @@ fresh	http://stream12.freshfmonline.com/
 dB	http://91.221.151.253/
 slam	http://vip-icecast.538.lw.triple-it.nl/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
-fip1	http://chai5she.cdn.dvmr.fr/fip-webradio1.mp3
-fip2	http://chai5she.cdn.dvmr.fr/fip-webradio2.mp3
-fip3	http://chai5she.cdn.dvmr.fr/fip-webradio3.mp3
-fip4	http://chai5she.cdn.dvmr.fr/fip-webradio4.mp3
-fip5	http://chai5she.cdn.dvmr.fr/fip-webradio5.mp3
-fip6	http://chai5she.cdn.dvmr.fr/fip-webradio6.mp3
-nprmp3	http://current.stream.publicradio.org/kcmp.mp3
-npraac	http://current.stream.publicradio.org/kcmp.aac
-kexp	http://live-aacplus-64.kexp.org/kexp64.aac
