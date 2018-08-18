@@ -1,5 +1,5 @@
-fip	http://chai5she.cdn.dvmr.fr/fip-midfi.mp3
-fip-elec	http://chai5she.cdn.dvmr.fr/fip-webradio8.mp3
+fip	http://direct.fipradio.fr/live/fip-midfi.mp3
+fipelec	http://direct.fipradio.fr/live/fip-webradio8.mp3
 class	http://19373.live.streamtheworld.com:80/CLASSICFM_SC
 10	http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO10AAC.aac
 arrow	http://91.221.151.155/
@@ -9,12 +9,12 @@ arrow	http://91.221.151.155/
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
 6	http://icecast.omroep.nl/radio6-bb-aac
-fip-rock	http://chai5she.cdn.dvmr.fr/fip-webradio1.mp3
-fip-jazz	http://chai5she.cdn.dvmr.fr/fip-webradio2.mp3
-fip-groove	http://chai5she.cdn.dvmr.fr/fip-webradio3.mp3
-fip-monde	http://chai5she.cdn.dvmr.fr/fip-webradio4.mp3
-fip-nouv	http://chai5she.cdn.dvmr.fr/fip-webradio5.mp3
-fip-reggae	http://chai5she.cdn.dvmr.fr/fip-webradio6.mp3
+fiprock	http://direct.fipradio.fr/live/fip-webradio1.mp3
+fipjazz	http://direct.fipradio.fr/live/fip-webradio2.mp3
+fipgroove	http://direct.fipradio.fr/live/fip-webradio3.mp3
+fipmonde	http://direct.fipradio.fr/live/fip-webradio4.mp3
+fipnouv	http://direct.fipradio.fr/live/fip-webradio5.mp3
+fipreggae	http://direct.fipradio.fr/live/fip-webradio6.mp3
 bbc1	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
 bbc1x	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1xtra_mf_p
 bbc2	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
