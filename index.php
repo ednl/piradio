@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-GB">
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>Raspberry Pi Internet Radio</title>
+		<title>dac :: Internet Radio</title>
 		<meta name="author" content="Ewoud Dronkert" />
 		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
@@ -29,24 +29,24 @@ header('Content-Type: text/html; charset=utf-8');
 			body { margin: 10px; background-color: #fff; }
 			img { width: 72px; height: 72px; margin-right: 10px; float: left; }
 			a { text-decoration: none; }
-			div#clr { clear: both; }
+			div#clr { clear: both; margin-bottom: 10px; }
 			pre {
 				background-color: #bdf;
 				width: 616px;
 				margin-top: 10px;
-				padding: 10px 15px;
+				padding: 5px 15px 5px 0;
 			}
 			div#lcd {
 				color: #000;
 				overflow-x: hidden;
 				background-repeat: no-repeat;
-				background-position: top right;
+				background-position: center right;
 			}
 			div#listall { font: 16px Helvetica; width: 646px; margin-top: 10px; overflow-x: hidden; }
 			div.station { padding: 10px 15px; }
 			div.row1 { background-color: #f0f0f0; }
 			div#stop, div#reboot, div#poweroff { font: 24px Helvetica; color: #fff; width: 616px; margin-top: 10px; padding: 10px 15px; text-align: center; border-radius: 7px; }
-			div#stop { background-color: #0c0; }
+			div#stop { background-color: #0c0; margin-top: 0; }
 			div#reboot { background-color: #f90; }
 			div#poweroff { background-color: #f00; }
 		</style>
@@ -138,8 +138,26 @@ for ($i = 0; $i < 6; ++$i) {
 ?>
 			<!-- <a href="#off" onclick="return tune('off')" title="Radio Off"><img src="cmd-off.png" alt="off" /></a> -->
 			<a href="#dec" onclick="return vol('-')" title="Volume Down"><img src="cmd-dec.png" alt="dec" /></a>
-			<a href="#inc" onclick="return vol('+')" title="Volume Up"><img src="cmd-inc.png" alt="inc" /></a>
+			<a href="#inc" onclick="return vol('=')" title="Volume Up"><img src="cmd-inc.png" alt="inc" /></a>
 			<div id="clr"></div>
+<?php
+
+for ($j = 0; $j < 2; ++$j) {
+	for ($i = 0; $i < 8; ++$i) {
+		echo "\t\t\t";
+		if ($a = each($station)) {
+			list($id, $url) = $a;
+			echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '" /></a>';
+		} else {
+			echo '<img src="logo-none.png" alt="none" />';
+		}
+		echo PHP_EOL;
+	}
+	echo "\t\t\t" . '<div id="clr"></div>' . PHP_EOL;
+
+}
+
+?>
 		</div>
 		<div id="stop">Stop</div>
 		<pre><div id="lcd"></div></pre>
