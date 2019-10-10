@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=utf-8');
 			div#clr { clear: both; margin-bottom: 10px; }
 			pre {
 				background-color: #bdf;
-				width: 616px;
+				width: 631px;
 				margin-top: 10px;
 				padding: 5px 15px 5px 0;
 			}
