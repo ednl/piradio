@@ -7,6 +7,8 @@ Raspberry Pi internet radio. Radio station playback using the mpd media server, 
 - sudo apt-get install mpd mpc amixer bc at
 - For web interface: sudo apt-get install apache2 libapache2-mod-php
 
+![Piradio screenshot](https://ednl.github.io/piradio-screenshot.png)
+
 Control with DotHAT using this Python script: https://github.com/ednl/python/blob/master/radiocontrols.py
 - Add "radio.txt" file to /home/pi
 - Add "station" and "snooze" scripts to /usr/local/bin
