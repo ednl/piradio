@@ -8,8 +8,9 @@ Raspberry Pi internet radio. Radio station playback using the mpd media server, 
 - For web interface: sudo apt-get install apache2 libapache2-mod-php
 
 Control with DotHAT using this Python script: https://github.com/ednl/python/blob/master/radiocontrols.py
+- Add "radio.txt" file to /home/pi
 - Add "station" and "snooze" scripts to /usr/local/bin
-- Add "radiocontrols.py" script to ~/bin or /usr/local/bin
-- Edit /etc/rc.local, add: "/home/pi/bin/radiocontrols.py &"
+- Optional: add "radiocontrols.py" script to /usr/local/bin
+- Edit /etc/rc.local, add: "radiocontrols.py &"
 
 Web interface: copy .php and .png files to /var/www/html. Set permissions: sudo visudo, add: "www-data ALL=(ALL) NOPASSWD: /usr/bin/at, /usr/bin/amixer, /sbin/shutdown".
