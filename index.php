@@ -22,6 +22,7 @@ header('Content-Type: text/html; charset=utf-8');
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>dac :: Internet Radio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86" />
 		<meta name="author" content="Ewoud Dronkert" />
 		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
@@ -32,7 +33,7 @@ header('Content-Type: text/html; charset=utf-8');
 			div#clr { clear: both; margin-bottom: 10px; }
 			pre {
 				background-color: #bdf;
-				width: 631px;
+				//width: 631px;
 				margin-top: 10px;
 				padding: 5px 15px 5px 0;
 			}
@@ -42,10 +43,23 @@ header('Content-Type: text/html; charset=utf-8');
 				background-repeat: no-repeat;
 				background-position: center right;
 			}
-			div#listall { font: 16px Helvetica; width: 646px; margin-top: 10px; overflow-x: hidden; }
+			div#listall {
+				font: 16px Helvetica;
+				//width: 646px;
+				margin-top: 10px;
+				overflow-x: hidden;
+			}
 			div.station { padding: 10px 15px; }
 			div.row1 { background-color: #f0f0f0; }
-			div#stop, div#reboot, div#poweroff { font: 24px Helvetica; color: #fff; width: 616px; margin-top: 10px; padding: 10px 15px; text-align: center; border-radius: 7px; }
+			div#stop, div#reboot, div#poweroff {
+				font: 24px Helvetica;
+				color: #fff;
+				//width: 616px;
+				margin-top: 10px;
+				padding: 10px 15px;
+				text-align: center;
+				border-radius: 7px;
+			}
 			div#stop { background-color: #0c0; margin-top: 0; }
 			div#reboot { background-color: #f90; }
 			div#poweroff { background-color: #f00; }
@@ -124,7 +138,7 @@ header('Content-Type: text/html; charset=utf-8');
 <?php
 
 reset($station);
-for ($i = 0; $i < 6; ++$i) {
+for ($i = 0; $i < 7; ++$i) {
 	echo "\t\t\t";
 	if ($a = each($station)) {
 		list($id, $url) = $a;
@@ -143,7 +157,7 @@ for ($i = 0; $i < 6; ++$i) {
 <?php
 
 for ($j = 0; $j < 2; ++$j) {
-	for ($i = 0; $i < 8; ++$i) {
+	for ($i = 0; $i < 9; ++$i) {
 		echo "\t\t\t";
 		if ($a = each($station)) {
 			list($id, $url) = $a;
@@ -154,7 +168,6 @@ for ($j = 0; $j < 2; ++$j) {
 		echo PHP_EOL;
 	}
 	echo "\t\t\t" . '<div id="clr"></div>' . PHP_EOL;
-
 }
 
 ?>
