@@ -28,7 +28,13 @@ header('Content-Type: text/html; charset=utf-8');
 		<style type="text/css">
 			* { border: 0; margin: 0; padding: 0; }
 			body { margin: 10px; background-color: #fff; width: 738px; }
-			img { width: 72px; height: 72px; margin-left: 10px; float: left; }
+			img {
+				width: 72px;
+				height: 72px;
+				margin-left: 10px;
+				float: left;
+				border-radius: 7px;
+			}
 			img.first { margin-left: 0; }
 			a { text-decoration: none; }
 			div#clr { clear: both; margin-bottom: 10px; }
