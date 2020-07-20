@@ -22,20 +22,21 @@ header('Content-Type: text/html; charset=utf-8');
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>dac :: Internet Radio</title>
-		<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86" />
-		<meta name="author" content="Ewoud Dronkert" />
+		<meta name="viewport" content="width=738px" />
+		<meta name="author" content="E. Dronkert" />
 		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
 			* { border: 0; margin: 0; padding: 0; }
-			body { margin: 10px; background-color: #fff; }
-			img { width: 72px; height: 72px; margin-right: 10px; float: left; }
+			body { margin: 10px; background-color: #fff; width: 738px; }
+			img { width: 72px; height: 72px; margin-left: 10px; float: left; }
+			img.first { margin-left: 0; }
 			a { text-decoration: none; }
 			div#clr { clear: both; margin-bottom: 10px; }
 			pre {
 				background-color: #bdf;
-				//width: 631px;
+				width: 723px;
 				margin-top: 10px;
-				padding: 5px 15px 5px 0;
+				padding: 5px 5px 5px 0;
 			}
 			div#lcd {
 				color: #000;
@@ -45,7 +46,7 @@ header('Content-Type: text/html; charset=utf-8');
 			}
 			div#listall {
 				font: 16px Helvetica;
-				//width: 646px;
+				width: 728px;
 				margin-top: 10px;
 				overflow-x: hidden;
 			}
@@ -54,7 +55,7 @@ header('Content-Type: text/html; charset=utf-8');
 			div#stop, div#reboot, div#poweroff {
 				font: 24px Helvetica;
 				color: #fff;
-				//width: 616px;
+				width: 698px;
 				margin-top: 10px;
 				padding: 10px 15px;
 				text-align: center;
@@ -139,12 +140,13 @@ header('Content-Type: text/html; charset=utf-8');
 
 reset($station);
 for ($i = 0; $i < 7; ++$i) {
+	$class = $i == 0 ? ' class="first"' : '';
 	echo "\t\t\t";
 	if ($a = each($station)) {
 		list($id, $url) = $a;
-		echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '" /></a>';
+		echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '"' . $class . ' /></a>';
 	} else {
-		echo '<img src="logo-none.png" alt="none" />';
+		echo '<img src="logo-none.png" alt="none"' . $class . ' />';
 	}
 	echo PHP_EOL;
 }
@@ -158,12 +160,13 @@ for ($i = 0; $i < 7; ++$i) {
 
 for ($j = 0; $j < 2; ++$j) {
 	for ($i = 0; $i < 9; ++$i) {
+		$class = $i == 0 ? ' class="first"' : '';
 		echo "\t\t\t";
 		if ($a = each($station)) {
 			list($id, $url) = $a;
-			echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '" /></a>';
+			echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '"' . $class . ' /></a>';
 		} else {
-			echo '<img src="logo-none.png" alt="none" />';
+			echo '<img src="logo-none.png" alt="none"' . $class . ' />';
 		}
 		echo PHP_EOL;
 	}
