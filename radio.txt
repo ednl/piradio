@@ -3,7 +3,7 @@
 3	http://icecast.omroep.nl/3fm-bb-aac
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
-class	http://19373.live.streamtheworld.com:80/CLASSICFM_SC
+classnl	https://playerservices.streamtheworld.com/api/livestream-redirect/CLASSICFMAAC.m3u8
 ancient	http://5.152.208.98:8058/
 fip	https://icecast.radiofrance.fr/fip-hifi.aac
 fipelec	https://icecast.radiofrance.fr/fipelectro-hifi.aac
@@ -24,6 +24,9 @@ frmjazz	https://icecast.radiofrance.fr/francemusiquelajazz-hifi.aac
 frmmonde	https://icecast.radiofrance.fr/francemusiqueocoramonde-hifi.aac
 frmplus	https://icecast.radiofrance.fr/francemusiqueclassiqueplus-hifi.aac
 6	http://icecast.omroep.nl/radio6-bb-aac
+classnlmind	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR25AAC.m3u8
+classnlfilm	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR26AAC.m3u8
+classnlopera	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR27AAC.m3u8
 bbc1	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1_mf_p
 bbc1x	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio1xtra_mf_p
 bbc2	http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p
