@@ -4,7 +4,7 @@
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
 classnl	https://playerservices.streamtheworld.com/api/livestream-redirect/CLASSICFMAAC.m3u8
-ancient	http://5.152.208.98:8058/
+ancient	http://stream.ancientfm.com:8058/stream
 fip	https://icecast.radiofrance.fr/fip-hifi.aac
 fipelec	https://icecast.radiofrance.fr/fipelectro-hifi.aac
 fipgroove	https://icecast.radiofrance.fr/fipgroove-hifi.aac
