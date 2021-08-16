@@ -1,8 +1,8 @@
 1	http://icecast.omroep.nl/radio1-bb-aac
 2	http://icecast.omroep.nl/radio2-bb-aac
-3	http://icecast.omroep.nl/3fm-bb-aac
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
+utr	https://media.rtvutrecht.nl/radiomutrecht-bb-mp3
 classnl	https://playerservices.streamtheworld.com/api/livestream-redirect/CLASSICFMAAC.m3u8
 ancient	http://stream.ancientfm.com:8058/stream
 fip	https://icecast.radiofrance.fr/fip-hifi.aac
@@ -23,6 +23,7 @@ frmconcert	https://icecast.radiofrance.fr/francemusiqueconcertsradiofrance-hifi.
 frmjazz	https://icecast.radiofrance.fr/francemusiquelajazz-hifi.aac
 frmmonde	https://icecast.radiofrance.fr/francemusiqueocoramonde-hifi.aac
 frmplus	https://icecast.radiofrance.fr/francemusiqueclassiqueplus-hifi.aac
+3	http://icecast.omroep.nl/3fm-bb-aac
 6	http://icecast.omroep.nl/radio6-bb-aac
 classnlmind	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR25AAC.m3u8
 classnlfilm	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR26AAC.m3u8
