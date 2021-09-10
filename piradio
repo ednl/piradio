@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
 #######################################################################
-# Made by    : Ewoud Dronkert
+# Made by    : E. Dronkert
 # Licence    : GNU GPL v3
 # Platform   : Raspberry Pi
-# Requires   : bash, mpd, mpc, amixer, bc, at
+# Requires   : bash, mpd, mpc, at
+#            : User pi in group audio
+#            : mpd executed as group audio, see /etc/mpd.conf
+#            : No-pwd access to at and shutdown for user www-data:
+#                add with 'sudo visudo' (this is probably a giant security hole)
+#                www-data ALL=(ALL) NOPASSWD: /usr/bin/at, /sbin/shutdown
 # Location   : /usr/local/bin/
 # Name       : piradio
-# Version    : 1.3.1
-# Date       : 2016-07-13
+# Version    : 1.3.2
+# Date       : 2021-09-06
 # Purpose    : Play radio streams via local mpd audio server
 #              Use station abbreviations from user file radio.txt
 #              Shutdown (auto-off) after 3 hours using 'at'
@@ -19,18 +24,16 @@
 #          1 : help displayed
 #          2 : radio.txt local user file not found
 #          3 : station abbreviation not recognised
-#          4 : mpc, amixer, bc or at executables not found
+#          4 : mpc or 'at' executables not found
 #######################################################################
 
 # Variables
 PLAYER=/usr/bin/mpc
-MIXER=/usr/bin/amixer
-BCBIN=/usr/bin/bc
 ATBIN=/usr/bin/at
 ATCMD="$PLAYER stop"
 PIHOME=$(cat /etc/passwd | grep -e '^pi:' | cut -d':' -f6)
 DBFILE=$PIHOME/radio.txt
-DEFVOL=85
+DEFVOL=25
 ADJVOL=5
 
 # Error codes
@@ -48,20 +51,6 @@ function StdErr () {
 if [ ! -x "$PLAYER" ]; then
 	echo | StdErr
 	echo "   Radio player not found: $PLAYER" | StdErr
-	echo | StdErr
-	exit $ERR_APPNOTFOUND
-fi
-
-if [ ! -x "$MIXER" ]; then
-	echo | StdErr
-	echo "   Mixer for volume control not found: $MIXER" | StdErr
-	echo | StdErr
-	exit $ERR_APPNOTFOUND
-fi
-
-if [ ! -x "$BCBIN" ]; then
-	echo | StdErr
-	echo "   Calc tool for volume control not found: $BCBIN" | StdErr
 	echo | StdErr
 	exit $ERR_APPNOTFOUND
 fi
@@ -94,7 +83,6 @@ function SnoozeFind () {
 	for i in $(sudo $ATBIN -l | grep -oP '^\d+' | sort | xargs); do
 		j=$(sudo $ATBIN -c $i | tail -n 1)
 		if [[ "$j" == "$ATCMD" ]]; then
-			#sudo $ATBIN -l | grep -P "^$i\t" | cut -d" " -f4 | cut -d":" -f1-2
 			sudo $ATBIN -l | grep -P "^$i\t" | grep -oP '\d\d:\d\d'
 		fi
 	done
@@ -103,11 +91,6 @@ function SnoozeFind () {
 # Returns volume as a percentage 0-100 via standard out
 function GetVolume () {
 	$PLAYER volume | grep -oE '[0-9]+'
-	#GET=$(sudo $MIXER cget numid=1)
-	#MIN=$(echo "$GET" | /bin/grep -oE ',min=[^,]+' | /bin/grep -oE '[0-9-]+')
-	#MAX=$(echo "$GET" | /bin/grep -oE ',max=[^,]+' | /bin/grep -oE '[0-9-]+')
-	#VAL=$(echo "$GET" | /bin/grep -oE ': values=[0-9+-]+' | /bin/grep -oE '[0-9-]+')
-	#echo "(100*($VAL-($MIN))+0.5*($MAX-($MIN)))/($MAX-($MIN))" | $BCBIN
 }
 
 # Required argument: volume as a percentage 0-100
@@ -115,8 +98,7 @@ function SetVolume () {
 	VOL="${1//[^0-9]/}"
 	LEN=${#VOL}
 	if (( LEN >= 1 && LEN <= 3 && VOL >= 0 && VOL <= 100 )); then
-		mpc -q volume $VOL
-		#sudo $MIXER -q cset numid=1 -- "${VOL}%"
+		$PLAYER -q volume $VOL
 	fi
 }
 
