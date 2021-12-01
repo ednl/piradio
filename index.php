@@ -27,7 +27,7 @@ header('Content-Type: text/html; charset=utf-8');
 		<link rel="icon" type="image/png" href="raspi.png" />
 		<style type="text/css">
 			* { border: 0; margin: 0; padding: 0; }
-			body { margin: 10px; background-color: #fff; width: 738px; }
+			body { margin: 10px; background-color: #151d26; width: 738px; }
 			img {
 				width: 72px;
 				height: 72px;
@@ -36,16 +36,16 @@ header('Content-Type: text/html; charset=utf-8');
 				border-radius: 7px;
 			}
 			img.first { margin-left: 0; }
-			a { text-decoration: none; }
+			a { text-decoration: none; color: #950; }
 			div#clr { clear: both; margin-bottom: 10px; }
 			pre {
-				background-color: #bdf;
+				background-color: #369;
 				width: 723px;
 				margin-top: 10px;
 				padding: 5px 5px 5px 0;
 			}
 			div#lcd {
-				color: #000;
+				color: #ccc;
 				overflow-x: hidden;
 				background-repeat: no-repeat;
 				background-position: center right;
@@ -57,19 +57,19 @@ header('Content-Type: text/html; charset=utf-8');
 				overflow-x: hidden;
 			}
 			div.station { padding: 10px 15px; }
-			div.row1 { background-color: #f0f0f0; }
+			div.row1 { background-color: #1f2a34; }
 			div#stop, div#reboot, div#poweroff {
 				font: 24px Helvetica;
-				color: #fff;
+				color: #ccc;
 				width: 698px;
 				margin-top: 10px;
 				padding: 10px 15px;
 				text-align: center;
 				border-radius: 7px;
 			}
-			div#stop { background-color: #0c0; margin-top: 0; }
-			div#reboot { background-color: #f90; }
-			div#poweroff { background-color: #f00; }
+			div#stop     { background-color: #030; margin-top: 0; }
+			div#reboot   { background-color: #c60; }
+			div#poweroff { background-color: #900; }
 		</style>
 		<script type="text/javascript">
 			var re_station = /Station : (.*)/;
@@ -98,7 +98,7 @@ header('Content-Type: text/html; charset=utf-8');
 				if (station != "off") {
 					var e;
 					if (e = document.getElementById("stop")) {
-						e.style.backgroundColor = "#0c0";
+						e.style.backgroundColor = "#090";
 						e.style.cursor = "pointer";
 						e.addEventListener("click", shutdown);
 					}
@@ -114,13 +114,13 @@ header('Content-Type: text/html; charset=utf-8');
 				e.target.style.cursor = "default";
 				var arg = false;
 				if (e.target.id == "stop") {
-					e.target.style.backgroundColor = "#cfc";
+					e.target.style.backgroundColor = "#030";
 					return tune("off");
 				} else if (e.target.id == "reboot") {
-					e.target.style.backgroundColor = "#fec";
+					e.target.style.backgroundColor = "#930";
 					arg = "r";
 				} else if (e.target.id == "poweroff") {
-					e.target.style.backgroundColor = "#fcc";
+					e.target.style.backgroundColor = "#300";
 					arg = "h";
 				}
 				if (arg) {
