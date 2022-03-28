@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-GB">
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>dac :: Internet Radio</title>
+		<title>Internet Radio</title>
 		<meta name="viewport" content="width=738px" />
 		<meta name="author" content="E. Dronkert" />
 		<link rel="icon" type="image/png" href="raspi.png" />
@@ -144,40 +144,40 @@ header('Content-Type: text/html; charset=utf-8');
 		<div id="favs">
 <?php
 
-reset($station);
-for ($i = 0; $i < 7; ++$i) {
-	$class = $i == 0 ? ' class="first"' : '';
-	echo "\t\t\t";
-	if ($a = each($station)) {
-		list($id, $url) = $a;
-		echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '"' . $class . ' /></a>';
-	} else {
-		echo '<img src="logo-none.png" alt="none"' . $class . ' />';
+// Give link and button image for the appropriate fav preset, depending on position and ID.
+// Nine buttons on each row, two volume buttons at the end of the first row.
+// $pos = 0+, $id = string or false
+function favlink($pos, $id) {
+	$mod = $pos % 9;
+	$class = $mod == 0 ? ' class="first"' : '';       // start of row
+	$clear = $mod == 8 ? '<div id="clr"></div>' : ''; // end of row
+	// At position 7+8, give volume buttons (regardless of ID)
+	if ($pos == 7) {
+		return '<a href="#dec" onclick="return vol(\'-\')" title="Volume Down"><img src="cmd-dec.png" alt="dec"' . $class . ' /></a>' . $clear;
 	}
-	echo PHP_EOL;
+	if ($pos == 8) {
+		return '<a href="#inc" onclick="return vol(\'=\')" title="Volume Up"><img src="cmd-inc.png" alt="inc"' . $class . ' /></a>' . $clear;
+	}
+	// If no preset ID at this position, give placeholder button without link
+	if ($id === false) {
+		return '<img src="logo-none.png" alt="none"' . $class . ' />' . $clear;
+	}
+	// In all other cases, give station image+link
+	return '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '"' . $class . ' /></a>' . $clear;
 }
 
-?>
-			<!-- <a href="#off" onclick="return tune('off')" title="Radio Off"><img src="cmd-off.png" alt="off" /></a> -->
-			<a href="#dec" onclick="return vol('-')" title="Volume Down"><img src="cmd-dec.png" alt="dec" /></a>
-			<a href="#inc" onclick="return vol('=')" title="Volume Up"><img src="cmd-inc.png" alt="inc" /></a>
-			<div id="clr"></div>
-<?php
-
-for ($j = 0; $j < 2; ++$j) {
-	for ($i = 0; $i < 9; ++$i) {
-		$class = $i == 0 ? ' class="first"' : '';
-		echo "\t\t\t";
-		if ($a = each($station)) {
-			list($id, $url) = $a;
-			echo '<a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')" title="' . htmlspecialchars($id) . '"><img src="logo-' . urlencode($id) . '.png" alt="' . htmlspecialchars($id) . '"' . $class . ' /></a>';
-		} else {
-			echo '<img src="logo-none.png" alt="none"' . $class . ' />';
-		}
-		echo PHP_EOL;
-	}
-	echo "\t\t\t" . '<div id="clr"></div>' . PHP_EOL;
+$pos = 0;
+foreach ($station as $id => $url) {
+	echo "\t\t\t" . favlink($pos++, $id) . PHP_EOL;
+	// Stop after three rows
+	if ($pos == 27)
+		break;
+	// Skip over volume buttons without losing presets from this loop
+	while ($pos == 7 || $pos == 8)
+		echo "\t\t\t" . favlink($pos++, false) . PHP_EOL;
 }
+while ($pos < 27)
+	echo "\t\t\t" . favlink($pos++, false) . PHP_EOL;
 
 ?>
 		</div>
