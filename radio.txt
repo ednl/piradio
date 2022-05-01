@@ -44,6 +44,7 @@ trip	http://ice.somafm.com/thetrip
 ds1	http://ice.somafm.com/deepspaceone
 space	http://ice.somafm.com/spacestation
 10	http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO10AAC.aac
+106070	https://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR18.mp3
 arrow	http://91.221.151.155/
 192	http://server-14.stream-server.nl:8030/
 bnr	http://81.173.3.251/
