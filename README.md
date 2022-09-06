@@ -1,7 +1,7 @@
 piradio
 =======
 
-![Piradio screenshot](https://ednl.github.io/piradio-screenshot2.png)
+![Piradio screenshot](https://ednl.github.io/piradio-screenshot4.png)
 
 This project uses the GNU General Public License version 3, see the included LICENSE file.
 
