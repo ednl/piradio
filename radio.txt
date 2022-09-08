@@ -11,9 +11,9 @@ fipgroove	https://icecast.radiofrance.fr/fipgroove-hifi.aac
 fipnouv	https://icecast.radiofrance.fr/fipnouveautes-hifi.aac
 fippop	https://icecast.radiofrance.fr/fippop-hifi.aac
 fiprock	https://icecast.radiofrance.fr/fiprock-hifi.aac
+fipmetal	https://icecast.radiofrance.fr/fipmetal-hifi.aac
+fiphiphop	https://icecast.radiofrance.fr/fiphiphop-hifi.aac
 fipjazz	https://icecast.radiofrance.fr/fipjazz-hifi.aac
-fipmonde	https://icecast.radiofrance.fr/fipworld-hifi.aac
-fipreggae	https://icecast.radiofrance.fr/fipreggae-hifi.aac
 frm	https://stream.radiofrance.fr/francemusique/francemusique_hifi.m3u8
 frmeasy	https://stream.radiofrance.fr/francemusiqueeasyclassique/francemusiqueeasyclassique_hifi.m3u8
 frmbaroque	https://stream.radiofrance.fr/francemusiquebaroque/francemusiquebaroque_hifi.m3u8
@@ -23,6 +23,8 @@ frmcontemp	https://stream.radiofrance.fr/francemusiquelacontemporaine/francemusi
 frmjazz	https://stream.radiofrance.fr/francemusiquelajazz/francemusiquelajazz_hifi.m3u8
 frmconcert	https://stream.radiofrance.fr/francemusiqueconcertsradiofrance/francemusiqueconcertsradiofrance_hifi.m3u8
 frmplus	https://stream.radiofrance.fr/francemusiqueclassiqueplus/francemusiqueclassiqueplus_hifi.m3u8
+fipmonde	https://icecast.radiofrance.fr/fipworld-hifi.aac
+fipreggae	https://icecast.radiofrance.fr/fipreggae-hifi.aac
 3	http://icecast.omroep.nl/3fm-bb-aac
 6	http://icecast.omroep.nl/radio6-bb-aac
 classnlmind	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR25AAC.m3u8
