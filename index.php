@@ -190,9 +190,12 @@ while ($pos < 27)
 if (count($station)) {
 	echo "\t\t" . '<div id="listall">' . PHP_EOL;
 	$rowid = 0;
+	$pos = 0;
 	foreach ($station as $id => $url) {
-		echo "\t\t\t" . '<div class="station row' . $rowid . '"><a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')">' . htmlspecialchars($id . ' | ' . $url) . '</a></div>' . PHP_EOL;
-		$rowid = 1 - $rowid;
+		if (++$pos > 25) {  // skip stations already listed in the logo rows
+			echo "\t\t\t" . '<div class="station row' . $rowid . '"><a href="#' . urlencode($id) . '" onclick="return tune(\'' . urlencode($id) . '\')">' . htmlspecialchars($id . ' | ' . $url) . '</a></div>' . PHP_EOL;
+			$rowid = 1 - $rowid;
+		}
 	}
 	echo "\t\t" . '</div>' . PHP_EOL;
 }
