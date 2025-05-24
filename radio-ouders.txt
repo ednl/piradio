@@ -18,11 +18,12 @@ frmplus	https://stream.radiofrance.fr/francemusiqueclassiqueplus/francemusiquecl
 106070	https://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR18.mp3
 sky	https://playerservices.streamtheworld.com/api/livestream-redirect/SKYRADIO.mp3
 skynice	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR07.mp3
+eemland https://live.eemland1.nl/radio
 fip	https://icecast.radiofrance.fr/fip-hifi.aac
 fipelec	https://icecast.radiofrance.fr/fipelectro-hifi.aac
 fipgroove	https://icecast.radiofrance.fr/fipgroove-hifi.aac
-fipnouv	https://icecast.radiofrance.fr/fipnouveautes-hifi.aac
 fippop	https://icecast.radiofrance.fr/fippop-hifi.aac
+fipnouv	https://icecast.radiofrance.fr/fipnouveautes-hifi.aac
 fiprock	https://icecast.radiofrance.fr/fiprock-hifi.aac
 fipjazz	https://icecast.radiofrance.fr/fipjazz-hifi.aac
 fipmonde	https://icecast.radiofrance.fr/fipworld-hifi.aac
@@ -57,4 +58,3 @@ fresh	http://stream12.freshfmonline.com/
 dB	http://91.221.151.253/
 slam	http://vip-icecast.538.lw.triple-it.nl/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
-eemland https://live.eemland1.nl/radio
