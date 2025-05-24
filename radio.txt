@@ -59,3 +59,4 @@ dB	http://91.221.151.253/
 slam	http://vip-icecast.538.lw.triple-it.nl/SLAMFM_MP3
 funx	http://icecast.omroep.nl/funx-bb-mp3
 eemland https://live.eemland1.nl/radio
+zeeland https://d3isaxd2t6q8zm.cloudfront.net/icecast/omroepzeeland/omroepzeeland_radio
