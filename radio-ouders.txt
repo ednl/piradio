@@ -1,9 +1,9 @@
 1	http://icecast.omroep.nl/radio1-bb-aac
 2	http://icecast.omroep.nl/radio2-bb-aac
 4	http://icecast.omroep.nl/radio4-bb-aac
-eemland https://live.eemland1.nl/radio
+eemland	https://live.eemland1.nl/radio
 rijnmond	https://dcur8bjarl5c2.cloudfront.net/icecast/rijnmond/radio-mp3
-zeeland https://d3isaxd2t6q8zm.cloudfront.net/icecast/omroepzeeland/omroepzeeland_radio
+zeeland	https://d3isaxd2t6q8zm.cloudfront.net/icecast/omroepzeeland/omroepzeeland_radio
 utr	https://media.rtvutrecht.nl/radiomutrecht-bb-mp3
 frm	https://stream.radiofrance.fr/francemusique/francemusique_hifi.m3u8
 frmeasy	https://stream.radiofrance.fr/francemusiqueeasyclassique/francemusiqueeasyclassique_hifi.m3u8
@@ -32,9 +32,9 @@ fipreggae	https://icecast.radiofrance.fr/fipreggae-hifi.aac
 3	http://icecast.omroep.nl/3fm-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
 6	http://icecast.omroep.nl/radio6-bb-aac
-classnlmind https://classic.nl/streams/?s=mindradio
-classnlfilm https://classic.nl/streams/?s=soundtracks
-classnlopera    https://classic.nl/streams/?s=opera
+classnlmind	https://classic.nl/streams/?s=mindradio
+classnlfilm	https://classic.nl/streams/?s=soundtracks
+classnlopera	https://classic.nl/streams/?s=opera
 bbc1	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d96000.norewind.m3u8
 bbc1x	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d96000.norewind.m3u8
 bbc2	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d96000.norewind.m3u8
@@ -43,7 +43,7 @@ bbc4	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_fourfm/bbc_r
 bbc4x	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_four_extra/bbc_radio_four_extra.isml/bbc_radio_four_extra-audio%3d96000.norewind.m3u8
 bbc5	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_five_live/bbc_radio_five_live.isml/bbc_radio_five_live-audio%3d96000.norewind.m3u8
 bbc6	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_6music/bbc_6music.isml/bbc_6music-audio%3d96000.norewind.m3u8
-bbcws   http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
+bbcws	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
 stubru	http://mp3.streampower.be/stubru-high.mp3
 mnm	http://mp3.streampower.be/mnm-high.mp3
 klara	http://mp3.streampower.be/klara-high.mp3
