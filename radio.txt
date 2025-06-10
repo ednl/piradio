@@ -3,7 +3,7 @@
 4	http://icecast.omroep.nl/radio4-bb-aac
 5	http://icecast.omroep.nl/radio5-bb-aac
 utr	https://media.rtvutrecht.nl/radiomutrecht-bb-mp3
-classnl	https://playerservices.streamtheworld.com/api/livestream-redirect/CLASSICFMAAC.m3u8
+classnl	https://classic.nl/streams/?s=main
 ancient	http://stream.ancientfm.com:8058/stream
 fip	https://icecast.radiofrance.fr/fip-hifi.aac
 fipelec	https://icecast.radiofrance.fr/fipelectro-hifi.aac
@@ -30,9 +30,9 @@ fiphiphop	https://icecast.radiofrance.fr/fiphiphop-hifi.aac
 fipgroove	https://icecast.radiofrance.fr/fipgroove-hifi.aac
 fipreggae	https://icecast.radiofrance.fr/fipreggae-hifi.aac
 fipmonde	https://icecast.radiofrance.fr/fipworld-hifi.aac
-classnlmind	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR25AAC.m3u8
-classnlfilm	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR26AAC.m3u8
-classnlopera	https://playerservices.streamtheworld.com/api/livestream-redirect/SRGSTR27AAC.m3u8
+classnlmind https://classic.nl/streams/?s=mindradio
+classnlfilm https://classic.nl/streams/?s=soundtracks
+classnlopera    https://classic.nl/streams/?s=opera
 bbc1	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d96000.norewind.m3u8
 bbc1x	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d96000.norewind.m3u8
 bbc2	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_two/bbc_radio_two.isml/bbc_radio_two-audio%3d96000.norewind.m3u8
