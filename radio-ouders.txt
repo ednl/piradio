@@ -46,6 +46,7 @@ bbc6	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_6music/bbc_6music.
 bbcws	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
 vrt1	http://icecast.vrtcdn.be/radio1.aac
 stubru	http://icecast.vrtcdn.be/stubru.aac
+sbuntz	http://icecast.vrtcdn.be/stubru_untz.aac
 klara	http://icecast.vrtcdn.be/klara.aac
 bene	http://icecast.vrtcdn.be/radiobene.aac
 mnm	http://icecast.vrtcdn.be/mnm.aac
