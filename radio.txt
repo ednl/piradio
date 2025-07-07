@@ -41,8 +41,10 @@ bbc4	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_fourfm/bbc_r
 bbc4x	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_four_extra/bbc_radio_four_extra.isml/bbc_radio_four_extra-audio%3d96000.norewind.m3u8
 bbc5	http://as-hls-ww-live.akamaized.net/pool_900/live/ww/bbc_radio_five_live/bbc_radio_five_live.isml/bbc_radio_five_live-audio%3d96000.norewind.m3u8
 bbcws	http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/nonuk/sbr_low/ak/bbc_world_service.m3u8
-mnm	http://icecast.vrtcdn.be/mnm.aac
+vrt1	http://icecast.vrtcdn.be/radio1.aac
 klara	http://icecast.vrtcdn.be/klara.aac
+bene	http://icecast.vrtcdn.be/radiobene.aac
+mnm	http://icecast.vrtcdn.be/mnm.aac
 trip	http://ice.somafm.com/thetrip
 ds1	http://ice.somafm.com/deepspaceone
 space	http://ice.somafm.com/spacestation
